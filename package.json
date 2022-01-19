@@ -4,7 +4,8 @@
     "main": "gulpfile.js",
     "license": "MIT",
     "scripts": {
-        "build": "gulp build"
+        "build": "gulp build",
+        "http-server": "node node_modules/http-server/bin/http-server ./development"
     },
     "devDependencies": {
         "@babel/core": "^7.6.0",
@@ -30,6 +31,7 @@
         "gulp-sourcemaps": "^2.6.5",
         "gulp-uglify": "^3.0.2",
         "gulp-watch": "^5.0.1",
+        "http-server": "^14.1.0",
         "intersection-observer": "^0.7.0",
         "merge-stream": "^2.0.0",
         "tsify": "^5.0.4",

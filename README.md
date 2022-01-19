@@ -23,6 +23,11 @@ In _./gulpfile.js/config.js_ all is defined for using the gulp tasks.
 
 In _./data*.json_ you can define variables for _nunjucks_ p.e. to set an _baseUrl_.
 
+## Built in http server for development
+
+Run `npm run http-server` (after building development with `gulp build` or `npm run build`) and follow the URL in the console (it should be http://127.0.0.1:8080).
+
+
 ## License
 
 MIT - sunixzs - see [license](LICENSE)
