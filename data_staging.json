@@ -1,5 +1,6 @@
 {
     "baseUrl": "http://dev.domain.tld/",
+    "lang": "de",
     "meta": {
         "author": "author",
         "copyright": "copyright",
@@ -10,10 +11,5 @@
         "javascript": "assets/javascript/",
         "typescript": "assets/typescript/",
         "style": "assets/style/"
-    },
-    "footer": {
-        "content": {
-            "bar": "baz"
-        }
     }
 }

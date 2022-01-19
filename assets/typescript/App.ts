@@ -10,4 +10,4 @@ const hs = new HashScroll();
 hs.init();
 // hs.setHeaderOffset($header ? $header.height() + 20 : 0).init();
 
-console.log("assets/typescript/App.js works!");
+console.log("assets/typescript/App.js works fine!");

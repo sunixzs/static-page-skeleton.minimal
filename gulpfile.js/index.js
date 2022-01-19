@@ -66,7 +66,7 @@ gulp.task("js:watch", () => {
 // define typescript tasks
 gulp.task("ts", getTask("typescript"));
 gulp.task("ts:watch", function () {
-    return gulp.watch([config.ts.watchSource], gulp.series("ts"));
+    return gulp.watch(config.ts.watchSource, gulp.series("ts"));
 });
 
 // define nunjucks tasks
@@ -83,7 +83,6 @@ gulp.task("cleanup", getTask("cleanup"));
 
 // task to build all in once
 gulp.task("build", gulp.series("assets:cleanup", "cleanup", "nunjucks", "assets:build", "scss", "js", "ts"));
-
 
 // prettier-ignore
 gulp.task("default", (cb) => {

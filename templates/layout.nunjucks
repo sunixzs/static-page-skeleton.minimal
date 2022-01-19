@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="de" class="no-js">
+<html lang="{{ lang }}" class="no-js">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
+
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes" />
+
     {% block robots %}
-    <meta name="robots" content="index, follow" />{% endblock %}
+    <meta name="robots" content="index, follow" />
+    {% endblock %}
     <meta name="author" content="{{ meta.author }}" />
     <meta name="copyright" content="{{ meta.copyright }}" />
     <meta name="distribution" content="global" />
@@ -17,11 +20,16 @@
 
     <title>{% block pageTitle %}standard page title{% endblock %}</title>
 
-    {% if baseUrl %}<base href="{{ baseUrl }}" />{% endif %}
+    {% if baseUrl %}
+    <base href="{{ baseUrl }}" />
+    {% endif %}
 
     <link rel="stylesheet" type="text/css" href="{{ baseUrl }}{{ path.style }}App.css?{{ timestamp }}" media="all">
 
-    <script>document.documentElement.classList.remove("no-js"); document.documentElement.classList.add("js");</script>
+    <script>
+        document.documentElement.classList.remove("no-js");
+        document.documentElement.classList.add("js");
+    </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="{{ baseUrl }}{{ path.images }}app/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ baseUrl }}{{ path.images }}app/favicon-32x32.png">
@@ -34,30 +42,26 @@
     <meta name="theme-color" content="#5c9eac">
 </head>
 
-<body lang="de">
-    <header id="header">
-        <div class="container-xl">
-            <a href="{{ baseUrl }}" id="header__logo"><img src="{{ baseUrl }}{{ path.images }}logos/logo.svg" alt="" /></a>
-            {% include "partials/navigation.main.nunjucks" %}
-            {# {% include "partials/navigation.meta.nunjucks" %} #}
-        </div>
+<body>
+    <header class="page__header container-xl">
+        <a href="{{ baseUrl }}" class="page__header__brand">My Company</a>
+        {% include "partials/navigation.main.nunjucks" %}
+        {# {% include "partials/navigation.meta.nunjucks" %} #}
     </header>
 
-    <main id="body">
+    <main class="page__body">
         {% block content %}{% endblock %}
     </main>
 
-    <footer id="footer">
-        <div class="content-centered">
-            <div class="content-space--left-right content-space--bottom align-right">
-                {% include "partials/navigation.meta.nunjucks" %}
-            </div>
+    <footer class="page__footer bg-dark">
+        <div class="container-xl">
+            {% include "partials/navigation.meta.nunjucks" %}
         </div>
     </footer>
 
     <script src="{{ baseUrl }}{{ path.javascript }}jquery.min.js"></script>
     <script src="{{ baseUrl }}{{ path.javascript }}bootstrap.bundle.js"></script>
-    <script src="{{ baseUrl }}{{ path.javascript }}App.js?{{ timestamp }}"></script>
+    <!-- <script src="{{ baseUrl }}{{ path.javascript }}App.js?{{ timestamp }}"></script> -->
     <script src="{{ baseUrl }}{{ path.typescript }}App.js?{{ timestamp }}"></script>
 </body>
 
