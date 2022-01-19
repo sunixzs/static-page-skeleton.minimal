@@ -1,0 +1,60 @@
+@mixin content-centered($maxWidth, $margin) {
+    .content-centered {
+        margin-left: $margin;
+        margin-right: $margin;
+        max-width: $maxWidth;
+    }
+}
+
+@mixin content-space($space-h, $space-v) {
+    .content-space {
+        &--left {
+            padding-left: $space-h;
+        }
+
+        &--right {
+            padding-right: $space-h;
+        }
+
+        &--left-right {
+            padding-left: $space-h;
+            padding-right: $space-h;
+        }
+
+        &--top {
+            padding-top: $space-v;
+        }
+
+        &--bottom {
+            padding-bottom: $space-v;
+        }
+
+        &--top-bottom {
+            padding-top: $space-v;
+            padding-bottom: $space-v;
+        }
+    }
+}
+
+@include content-centered(1024px, auto);
+@include content-space(70px, 50px);
+
+@include mq($device_laptop) {
+    @include content-centered(initial, 2rem);
+    @include content-space(35px, 25px);
+}
+
+@include mq($device_tablet) {
+    @include content-centered(initial, 1rem);
+    @include content-space(2rem, 1.5rem);
+}
+
+@include mq($device_smartphone) {
+    @include content-centered(initial, 0);
+    @include content-space(1rem, 1rem);
+}
+
+.no-space-bottom {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}

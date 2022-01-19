@@ -1,0 +1,53 @@
+
+@import "Lists";
+@import "Links";
+@import "Captions";
+@import "SubSuper";
+@import "Alignment";
+@import "TextTransform";
+
+// Paragraphs
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+p {
+    @include standard-space-bottom();
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// underline
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+u,
+.underline {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+}
+
+// line through
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+s,
+.line-through {
+    text-decoration: line-through;
+}
+
+// ellipsis
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+.ellipsis {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// nowrap
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+.nowrap {
+    white-space: nowrap;
+}
+

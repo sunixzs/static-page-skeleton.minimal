@@ -1,0 +1,30 @@
+#footer {
+    nav.meta {
+        padding-top: 1rem;
+        
+        ul,
+        li,
+        a {
+            display: inline-block;
+        }
+
+        li {
+            margin-left: 2em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        a {
+            color: $color-grey;
+            text-decoration: none;
+
+            #{$no-touch-selector} &:hover,
+            &.active {
+                text-decoration: none;
+                color: $color-highlight;
+            }
+        }
+    }
+}

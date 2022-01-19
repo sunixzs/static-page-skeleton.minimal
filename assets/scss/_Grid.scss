@@ -1,0 +1,476 @@
+//
+// The outer grid-container
+//
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: -$size-32;
+    margin-top: -$size-32;
+}
+
+//
+// Reversed grids allow you to structure your source in the opposite order to
+// how your rendered layout will appear. Extends `.grid`.
+//
+.grid--rev {
+    flex-wrap: wrap-reverse;
+}
+
+//
+// 1. Cause columns to stack side-by-side.
+// 2. Space columns apart.
+// 3. Align columns to the tops of each other.
+// 4. Full-width unless told to behave otherwise.
+// 5. Required to combine fluid widths and fixed gutters.
+//
+.grid__item {
+    display: inline-block; // IE 10 braucht display:inline-block für die Flex-Items, damit -ms-flex-flow: wrap funktioniert.
+    padding-left: $size-32;
+    margin-top: $size-32;
+    width: 100%;
+}
+
+//
+// ALIGNMENTS
+// Extends `.grid`.
+//
+@mixin device-alignment($namespace: "") {
+    $prefix: "." + $namespace;
+
+    #{$prefix}grid--left {
+        justify-content: flex-start;
+    }
+
+    #{$prefix}grid--center {
+        justify-content: center;
+    }
+
+    #{$prefix}grid--right {
+        justify-content: flex-end;
+    }
+
+    #{$prefix}grid--top {
+        align-items: flex-start;
+    }
+
+    #{$prefix}grid--middle {
+        align-items: center;
+    }
+
+    #{$prefix}grid--bottom {
+        align-items: flex-end;
+    }
+
+    #{$prefix}grid--same-height {
+        align-items: stretch;
+
+        & > .grid__item > * {
+            min-height: 100%;
+            height: 100%;
+        }
+    }
+
+    #{$prefix}grid--reverse {
+        flex-direction: row-reverse;
+    }
+
+    #{$prefix}grid--rev {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+//
+// Create our width classes, prefixed by the specified namespace.
+// Extends .grid__item
+//
+@mixin device-type($namespace: "") {
+    $prefix: "." + $namespace; //
+
+    // Whole
+    #{$prefix}one-whole {
+        width: 100%;
+    }
+
+    // Halves
+    #{$prefix}one-half {
+        width: 50%;
+    }
+
+    // Thirds
+    #{$prefix}one-third {
+        width: 33.333%;
+    }
+    #{$prefix}two-thirds {
+        width: 66.666%;
+    }
+
+    // Quarters
+    #{$prefix}one-quarter {
+        width: 25%;
+    }
+    #{$prefix}two-quarters {
+        @extend #{$prefix}one-half;
+    }
+    #{$prefix}three-quarters {
+        width: 75%;
+    }
+
+    // Fifths
+    #{$prefix}one-fifth {
+        width: 20%;
+    }
+    #{$prefix}two-fifths {
+        width: 40%;
+    }
+    #{$prefix}three-fifths {
+        width: 60%;
+    }
+    #{$prefix}four-fifths {
+        width: 80%;
+    }
+
+    // Sixths
+    #{$prefix}one-sixth {
+        width: 16.666%;
+    }
+    #{$prefix}two-sixths {
+        @extend #{$prefix}one-third;
+    }
+    #{$prefix}three-sixths {
+        @extend #{$prefix}one-half;
+    }
+    #{$prefix}four-sixths {
+        @extend #{$prefix}two-thirds;
+    }
+    #{$prefix}five-sixths {
+        width: 83.333%;
+    }
+
+    // Eighths
+    #{$prefix}one-eighth {
+        width: 12.5%;
+    }
+    #{$prefix}two-eighths {
+        @extend #{$prefix}one-quarter;
+    }
+    #{$prefix}three-eighths {
+        width: 37.5%;
+    }
+    #{$prefix}four-eighths {
+        @extend #{$prefix}one-half;
+    }
+    #{$prefix}five-eighths {
+        width: 62.5%;
+    }
+    #{$prefix}six-eighths {
+        @extend #{$prefix}three-quarters;
+    }
+    #{$prefix}seven-eighths {
+        width: 87.5%;
+    }
+
+    // Tenths
+    #{$prefix}one-tenth {
+        width: 10%;
+    }
+    #{$prefix}two-tenths {
+        @extend #{$prefix}one-fifth;
+    }
+    #{$prefix}three-tenths {
+        width: 30%;
+    }
+    #{$prefix}four-tenths {
+        @extend #{$prefix}two-fifths;
+    }
+    #{$prefix}five-tenths {
+        @extend #{$prefix}one-half;
+    }
+    #{$prefix}six-tenths {
+        @extend #{$prefix}three-fifths;
+    }
+    #{$prefix}seven-tenths {
+        width: 70%;
+    }
+    #{$prefix}eight-tenths {
+        @extend #{$prefix}four-fifths;
+    }
+    #{$prefix}nine-tenths {
+        width: 90%;
+    }
+
+    // Twelfths
+    #{$prefix}one-twelfth {
+        width: 8.333%;
+    }
+    #{$prefix}two-twelfths {
+        @extend #{$prefix}one-sixth;
+    }
+    #{$prefix}three-twelfths {
+        @extend #{$prefix}one-quarter;
+    }
+    #{$prefix}four-twelfths {
+        @extend #{$prefix}one-third;
+    }
+    #{$prefix}five-twelfths {
+        width: 41.666%;
+    }
+    #{$prefix}six-twelfths {
+        @extend #{$prefix}one-half;
+    }
+    #{$prefix}seven-twelfths {
+        width: 58.333%;
+    }
+    #{$prefix}eight-twelfths {
+        @extend #{$prefix}two-thirds;
+    }
+    #{$prefix}nine-twelfths {
+        @extend #{$prefix}three-quarters;
+    }
+    #{$prefix}ten-twelfths {
+        @extend #{$prefix}five-sixths;
+    }
+    #{$prefix}eleven-twelfths {
+        width: 91.666%;
+    }
+}
+
+//
+// Create our space classes, prefixed by the specified namespace.
+// Extends .grid
+//
+@mixin device-space($namespace: "") {
+    $prefix: "." + $namespace; // vertical and horizontal
+    #{$prefix}grid-space-0 {
+        margin-left: 0;
+        margin-top: 0;
+
+        > .grid__item {
+            padding-left: 0;
+            margin-top: 0;
+        }
+    }
+
+    #{$prefix}grid-space-8 {
+        margin-left: -$size-8;
+        margin-top: -$size-8;
+
+        > .grid__item {
+            padding-left: $size-8;
+            margin-top: $size-8;
+        }
+    }
+
+    #{$prefix}grid-space-16 {
+        margin-left: -$size-16;
+        margin-top: -$size-16;
+
+        > .grid__item {
+            padding-left: $size-16;
+            margin-top: $size-16;
+        }
+    }
+
+    #{$prefix}grid-space-24 {
+        margin-left: -$size-24;
+        margin-top: -$size-24;
+
+        > .grid__item {
+            padding-left: $size-24;
+            margin-top: $size-24;
+        }
+    }
+
+    #{$prefix}grid-space-32 {
+        margin-left: -$size-32;
+        margin-top: -$size-32;
+
+        > .grid__item {
+            padding-left: $size-32;
+            margin-top: $size-32;
+        }
+    }
+
+    #{$prefix}grid-space-40 {
+        margin-left: -$size-40;
+        margin-top: -$size-40;
+
+        > .grid__item {
+            padding-left: $size-40;
+            margin-top: $size-40;
+        }
+    }
+
+    #{$prefix}grid-space-48 {
+        margin-left: -$size-48;
+        margin-top: -$size-48;
+
+        > .grid__item {
+            padding-left: $size-48;
+            margin-top: $size-48;
+        }
+    }
+
+    #{$prefix}grid-space-56 {
+        margin-left: -$size-56;
+        margin-top: -$size-56;
+
+        > .grid__item {
+            padding-left: $size-56;
+            margin-top: $size-56;
+        }
+    }
+
+    #{$prefix}grid-space-64 {
+        margin-left: -$size-64;
+        margin-top: -$size-64;
+
+        > .grid__item {
+            padding-left: $size-64;
+            margin-top: $size-64;
+        }
+    }
+
+    #{$prefix}grid-space-72 {
+        margin-left: -$size-72;
+        margin-top: -$size-72;
+
+        > .grid__item {
+            padding-left: $size-72;
+            margin-top: $size-72;
+        }
+    }
+
+    #{$prefix}grid-space-80 {
+        margin-left: -$size-80;
+        margin-top: -$size-80;
+
+        > .grid__item {
+            padding-left: $size-80;
+            margin-top: $size-80;
+        }
+    }
+    
+    // vertical
+    #{$prefix}grid-space-vertical-0 {
+        margin-top: 0;
+
+        > .grid__item {
+            margin-top: 0;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-8 {
+        margin-top: -$size-8;
+
+        > .grid__item {
+            margin-top: $size-8;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-16 {
+        margin-top: -$size-16;
+
+        > .grid__item {
+            margin-top: $size-16;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-24 {
+        margin-top: -$size-24;
+
+        > .grid__item {
+            margin-top: $size-24;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-32 {
+        margin-left: -$size-32;
+
+        > .grid__item {
+            margin-top: $size-32;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-40 {
+        margin-top: -$size-40;
+
+        > .grid__item {
+            margin-top: $size-40;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-48 {
+        margin-top: -$size-48;
+
+        > .grid__item {
+            margin-top: $size-48;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-56 {
+        margin-top: -$size-56;
+
+        > .grid__item {
+            margin-top: $size-56;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-64 {
+        margin-top: -$size-64;
+
+        > .grid__item {
+            margin-top: $size-64;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-72 {
+        margin-top: -$size-72;
+
+        > .grid__item {
+            margin-top: $size-72;
+        }
+    }
+
+    #{$prefix}grid-space-vertical-80 {
+        margin-top: -$size-80;
+
+        > .grid__item {
+            margin-top: $size-80;
+        }
+    }
+}
+
+//
+// Our regular, non-responsive width classes.
+//
+@include device-type;
+@include device-space;
+@include device-alignment;
+
+// Styles for each breakpoint
+@include mq($device_desktop) {
+    @include device-type("desktop--");
+    @include device-space("desktop--");
+    @include device-alignment("desktop--");
+}
+@include mq($device_laptop) {
+    @include device-type("laptop--");
+    @include device-space("laptop--");
+    @include device-alignment("laptop--");
+}
+@include mq($device_tablet) {
+    @include device-type("tablet--");
+    @include device-space("tablet--");
+    @include device-alignment("tablet--");
+}
+@include mq($device_smartphone) {
+    @include device-type("smartphone--");
+    @include device-space("smartphone--");
+    @include device-alignment("smartphone--");
+}

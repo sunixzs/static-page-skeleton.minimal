@@ -1,0 +1,19 @@
+// text-transform
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+.transform-uppercase {
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+}
+
+.transform-lowercase {
+    text-transform: lowecase;
+}
+
+.transform-none {
+    text-transform: none;
+}
+
+.transform-small-caps {
+    font-variant: small-caps;
+}

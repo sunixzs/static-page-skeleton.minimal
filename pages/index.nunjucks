@@ -1,0 +1,13 @@
+<!-- index.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+{% set page = "home" %}
+
+{% block pageTitle %}static-page-skeleton{% endblock %}
+
+{% block content %}
+<div id="home">Home</div>
+<div id="about">About</div>
+<div id="services">Services</div>
+<div id="contact">Contact</div>
+{% endblock%}

@@ -1,0 +1,6 @@
+<nav class="meta">
+    <ul>
+        <li><a href="{{ baseUrl }}datenschutz" {% if page=="dataPrivacy" %}class="active"{% endif %}>Datenschutz</a></li>
+        <li><a href="{{ baseUrl }}impressum" {% if page=="imprint" %}class="active"{% endif %}>Impressum</a></li>
+    </ul>
+</nav>

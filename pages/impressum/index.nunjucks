@@ -1,0 +1,12 @@
+<!-- index.nunjucks -->
+{% extends "layout.nunjucks" %}
+
+{% set page = "imprint" %}
+
+{% block pageTitle %}Imprint{% endblock %}
+{% block robots %}
+<meta name="robots" content="noindex" />{% endblock %}
+
+{% block content %}
+Imprint
+{% endblock%}

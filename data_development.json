@@ -1,0 +1,14 @@
+{
+    "baseUrl": "http://localhost/static-page-skeleton/",
+    "meta": {
+        "author": "author",
+        "copyright": "copyright",
+        "creator": "creator"
+    },
+    "path": {
+        "images": "assets/images/",
+        "javascript": "assets/javascript/",
+        "typescript": "assets/typescript/",
+        "style": "assets/style/"
+    }
+}

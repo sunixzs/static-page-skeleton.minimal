@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes" />
+    {% block robots %}
+    <meta name="robots" content="index, follow" />{% endblock %}
+    <meta name="author" content="{{ data.meta.author }}" />
+    <meta name="copyright" content="{{ data.meta.copyright }}" />
+    <meta name="distribution" content="global" />
+    <meta name="audience" content="all" />
+    <meta name="rating" content="general" />
+    <meta name="creator" content="{{ data.meta.creator }}" />
+    <meta name="identifier" content="/" />
+
+    <title>{% block pageTitle %}standard page title{% endblock %}</title>
+
+    <base href="{{ baseUrl }}" />
+
+    <link rel="stylesheet" type="text/css" href="{{ baseUrl }}{{ path.style }}App.css" media="all">
+
+    <script>document.documentElement.classList.remove("no-js"); document.documentElement.classList.add("js");</script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ baseUrl }}{{ path.images }}app/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ baseUrl }}{{ path.images }}app/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ baseUrl }}{{ path.images }}app/favicon-16x16.png">
+    <link rel="manifest" href="{{ baseUrl }}{{ path.images }}app/site.webmanifest">
+    <link rel="mask-icon" href="{{ baseUrl }}{{ path.images }}app/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ baseUrl }}{{ path.images }}app/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="{{ baseUrl }}{{ path.images }}app/browserconfig.xml">
+    <meta name="theme-color" content="#5c9eac">
+
+</head>
+
+<body lang="de">
+    <header id="header">
+        <div class="content-centered">
+            <div class="content-space--left-right">
+                <div class="position-relative">
+                    <a href="{{ baseUrl }}" id="header__logo"><img src="{{ baseUrl }}{{ path.images }}logos/logo.svg"
+                            alt="" /></a>
+                    {% include "partials/navigation.main.nunjucks" %}
+                    {# {% include "partials/navigation.meta.nunjucks" %} #}
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="header__spacer"></div>
+
+    <main id="body">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer id="footer">
+        <div class="content-centered">
+            <div class="content-space--left-right content-space--bottom align-right">
+                {% include "partials/navigation.meta.nunjucks" %}
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ baseUrl }}{{ path.javascript }}App.js"></script>
+    <script src="{{ baseUrl }}{{ path.typescript }}App.js"></script>
+</body>
+
+</html>

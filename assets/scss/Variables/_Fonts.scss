@@ -1,0 +1,109 @@
+// Basic font dimensions
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+$root-pixel: 16;
+$letter-spacing: 0.04em;
+
+// additional font sizes
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+$size--16: -1rem;
+$size--12: -0.75rem;
+$size--8: -0.5rem;
+$size--4: -0.25rem;
+$size-8: 0.5rem;
+$size-16: 1rem;
+$size-24: 1.5rem;
+$size-32: 2rem;
+//$size-40: 2.5rem;
+$size-40: 42px;
+$size-48: 3rem;
+$size-56: 3.5rem;
+$size-64: 4rem;
+$size-72: 4.5rem;
+$size-80: 5rem;
+$size-88: 5.5rem;
+$size-96: 6rem;
+$size-104: 6.5rem;
+$size-112: 7rem;
+$size-120: 7.5rem;
+$size-128: 8rem;
+$size-136: 8.5rem;
+$size-144: 9rem;
+$size-152: 9.5rem;
+$size-160: 10rem;
+
+// Font Mixins
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+@mixin font-medium() {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin font-bold() {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+
+// Font-Size Mixins
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+@mixin font-size-bodytext() {
+    font-size: 17px;
+
+    @include mq($device_smartphone) {
+        font-size: 15px;
+    }
+}
+
+@mixin font-size-bodytext--small() {
+    font-size: 13px;
+
+    @include mq($device_smartphone) {
+        font-size: 11px;
+    }
+}
+
+@mixin font-size-bodytext--large() {
+    font-size: 24px;
+
+    @include mq($device_smartphone) {
+        font-size: 14px;
+    }
+}
+
+@mixin font-size-header--large() {
+    font-size: 53px;
+    line-height: 1.2;
+
+    @include mq($device_smartphone) {
+        font-size: 26px;
+    }
+}
+
+@mixin font-size-header--middle() {
+    font-size: 34px;
+    line-height: 1.2;
+
+    @include mq($device_smartphone) {
+        font-size: 21px;
+    }
+}
+
+@mixin font-size-header--small() {
+    font-size: 24px;
+
+    @include mq($device_smartphone) {
+        font-size: 14px;
+    }
+}
+
+@mixin font-size-subheader() {
+    font-size: 26px;
+
+    @include mq($device_smartphone) {
+        font-size: 16px;
+    }
+}

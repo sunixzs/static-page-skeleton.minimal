@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.position-relative {
+    position: relative;
+}
+
+// Responsive Images
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+    border: none;
+}
+
+// only for firefox
+@-moz-document url-prefix() {
+    .rte img {
+        width: 100%;
+    }
+}
+
+// Scrollbar
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+// Navigation
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+nav ul,
+nav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+}

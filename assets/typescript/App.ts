@@ -1,0 +1,1 @@
+console.log("assets/typescript/App.js works!");

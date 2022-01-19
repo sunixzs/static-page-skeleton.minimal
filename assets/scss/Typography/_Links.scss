@@ -1,0 +1,70 @@
+a {
+    transition: color 0.3s ease;
+}
+
+a.envelope,
+a.phone,
+a.fax {
+    text-decoration: none;
+
+    &::before {
+        margin-right: 0.5em;
+        font-family: "Font Awesome 5 Free";
+        font-style: normal;
+        font-weight: 900;
+        font-display: auto;
+    }
+
+    #{$no-touch-selector} &:hover {
+        text-decoration: none;
+    }
+}
+
+a.envelope {
+    &::before {
+        content: "\f0e0";
+    }
+}
+
+a.phone {
+    &::before {
+        content: "\f095";
+    }
+}
+
+a.fax {
+    &::before {
+        content: "\f1ac";
+    }
+}
+
+
+
+a.iframe-no-decoration,
+a.no-decoration {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a.read-more {
+    color: $color-highlight;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+    text-decoration: none;
+    @include font-bold();
+
+    svg {
+        //font-size: 100%;
+        width: 1.25rem;
+        height: auto;
+        margin-left: 0.5em;
+    }
+
+    #{$no-touch-selector} &:hover {
+        color: $color-highlight;
+        text-decoration: none;
+    }
+}

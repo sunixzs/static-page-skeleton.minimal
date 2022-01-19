@@ -1,0 +1,234 @@
+$actSelector: "html.header-overlay-active";
+$inactSelector: "html.header-overlay-inactive";
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 145px;
+    z-index: 100;
+    background-color: white;
+
+    html.page-is-scrolled & {
+        box-shadow: 0 0 10px rgba(black, 0.1);
+    }
+
+    .position-relative,
+    &__spacer {
+        height: 145px;
+    }
+
+    &__logo {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 200px;
+    }
+
+    nav.meta {
+        position: absolute;
+        top: 20%;
+        right: 0;
+
+        ul,
+        li,
+        a {
+            display: inline-block;
+        }
+
+        li {
+            margin-left: 2em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        a {
+            color: $color-grey;
+            text-decoration: none;
+
+            #{$no-touch-selector} &:hover,
+            &.active {
+                text-decoration: none;
+                color: $color-highlight;
+            }
+        }
+    }
+}
+
+nav.main {
+    position: absolute;
+    top: 60%;
+    left: 320px;
+    font-size: 130%;
+
+    ul,
+    li,
+    a {
+        display: inline-block;
+    }
+
+    li {
+        margin-left: 2em;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: $color-highlight;
+            transition: all ease-in-out 0.3s;
+        }
+
+        #{$no-touch-selector} &:hover,
+        &.active {
+            text-decoration: none;
+            &::after {
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+$toggle-button-size: 36px;
+#toggle-navigation {
+    display: none;
+    position: absolute;
+    width: $toggle-button-size;
+    height: $toggle-button-size;
+    //background-color: rgba(red, 0.5);
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 102;
+    cursor: pointer;
+
+    .bars {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: $toggle-button-size;
+        height: 4px;
+        border-radius: 2px;
+        background-color: $color-highlight;
+        transition: width 0.3s ease-in-out;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: $toggle-button-size;
+            height: 4px;
+            border-radius: 2px;
+            background-color: $color-highlight;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:before {
+            top: $toggle-button-size / 36 * -12;
+            right: $toggle-button-size / 36 * 6;
+            width: $toggle-button-size / 36 * 30;
+        }
+
+        &:after {
+            top: $toggle-button-size / 36 * 12;
+            right: $toggle-button-size / 36 * 17;
+            width: $toggle-button-size / 36 * 19;
+        }
+    }
+
+    // state of button when overlay is active - transforms to a X
+    #{$actSelector} & {
+        .bars {
+            width: 0;
+
+            &:before,
+            &:after {
+                right: $toggle-button-size / 36 * -25;
+                top: 0;
+                width: $toggle-button-size / 36 * 50;
+                //background-color: white;
+            }
+
+            &:before {
+                transform: rotate(-45deg);
+            }
+
+            &:after {
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+// breakpoint for navigation wide or alternative
+@include mq("(max-width: 950px)") {
+    #toggle-navigation {
+        display: block;
+    }
+
+    nav.main {
+        left: auto;
+        right: 0;
+        top: auto;
+        bottom: 20%;
+
+        ul {
+            position: absolute;
+            display: none;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(black, 0.1);
+            top: 1.4rem;
+            right: 0;
+            padding: 1rem;
+
+            li, a {
+                display: block;
+                margin-left: 0;
+            }
+
+            li {
+                margin-top: 0.5rem;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+
+            #{$actSelector} & {
+                display: block;
+            }
+        }
+    }
+}
+
+
+@include mq($device_smartphone) {
+    #header,
+    #header .position-relative,
+    #header__spacer {
+        height: 100px;
+    }
+
+    #header__logo {
+        width: 140px;
+    }
+}

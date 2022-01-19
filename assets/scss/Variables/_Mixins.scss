@@ -1,0 +1,31 @@
+@mixin placeholder($rules) {
+    & input:-moz-placeholder {
+        @each $parameter, $value in $rules {
+            #{$parameter}: $value;
+        }
+    }
+
+    // ie
+    & :-ms-input-placeholder {
+        @each $parameter, $value in $rules {
+            #{$parameter}: $value;
+        }
+    }
+
+    // firefox 19+
+    & ::-moz-placeholder {
+        @each $parameter, $value in $rules {
+            #{$parameter}: $value;
+        }
+    }
+
+    & ::-webkit-input-placeholder {
+        @each $parameter, $value in $rules {
+            #{$parameter}: $value;
+        }
+    }
+}
+
+@mixin standard-space-bottom() {
+    margin-bottom: 1.5rem;
+}

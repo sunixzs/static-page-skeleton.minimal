@@ -1,0 +1,122 @@
+// roboto-regular - latin
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/roboto-v20-latin-regular.eot'); // IE9 Compat Modes
+    src: local('Roboto'), local('Roboto-Regular'),
+        url('../fonts/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+        url('../fonts/roboto-v20-latin-regular.woff2') format('woff2'), // Super Modern Browsers
+        url('../fonts/roboto-v20-latin-regular.woff') format('woff'), // Modern Browsers
+        url('../fonts/roboto-v20-latin-regular.ttf') format('truetype'), // Safari, Android, iOS
+        url('../fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); // Legacy iOS
+}
+
+// roboto-700 - latin
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-v20-latin-700.eot'); // IE9 Compat Modes
+    src: local('Roboto Bold'), local('Roboto-Bold'),
+        url('../fonts/roboto-v20-latin-700.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+        url('../fonts/roboto-v20-latin-700.woff2') format('woff2'), // Super Modern Browsers
+        url('../fonts/roboto-v20-latin-700.woff') format('woff'), // Modern Browsers
+        url('../fonts/roboto-v20-latin-700.ttf') format('truetype'), // Safari, Android, iOS
+        url('../fonts/roboto-v20-latin-700.svg#Roboto') format('svg'); // Legacy iOS
+}
+
+html {
+    font-size: unquote($root-pixel + "px");
+    line-height: 1.6;
+    word-break: normal;
+    word-wrap: break-word;
+    hyphens: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: auto;
+}
+
+body {
+    @include font-size-bodytext();
+    //font-feature-settings: "dlig" 0, "numr" 0, "dnom" 0, "tnum" 0, "case" 0, "zero", "frac", "sups" 0, "subs" 0, "cpsp" 0, "salt" 0, "ss01" 0, "ss02" 0, "ss03" 0, "cv01" 0, "cv02", "cv03", "cv04",
+    //    "cv05", "cv06" 0, "cv07" 0, "cv08", "cv09" 0, "cv10" 0, "cv11" 0, "calt", "liga", "kern";
+}
+
+strong,
+b {
+    @include font-bold();
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+// DEFAUlT STYLES
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    @include standard-space-bottom();
+}
+
+h1,
+.header--large {
+    @include font-bold();
+    @include font-size-header--large();
+}
+
+h2,
+.header--middle {
+    @include font-bold();
+    @include font-size-header--middle();
+}
+
+h3,
+.header--small {
+    @include font-bold();
+    @include font-size-header--small();
+}
+
+.bodytext {
+    @include font-size-bodytext();
+}
+
+.bodytext--small {
+    @include font-size-bodytext--small();
+}
+
+.bodytext--large {
+    @include font-size-bodytext--large();
+}
+
+// Font-definitions
+html,
+input,
+button,
+select,
+textarea,
+h1.font-medium,
+h2.font-medium,
+h3.font-medium,
+h4.font-medium,
+h5.font-medium,
+h6.font-medium,
+.font-medium {
+    @include font-medium();
+}
+
+h1.font-bold,
+h2.font-bold,
+h3.font-bold,
+h4.font-bold,
+h5.font-bold,
+h6.font-bold,
+.font-bold {
+    @include font-bold();
+}

@@ -1,0 +1,13 @@
+# editor stuff
+.vscode/
+
+# packages
+node_modules
+yarn.lock
+package-lock.json
+*.log
+
+# output folders
+development
+staging
+production
