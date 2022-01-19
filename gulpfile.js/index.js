@@ -83,3 +83,28 @@ gulp.task("cleanup", getTask("cleanup"));
 
 // task to build all in once
 gulp.task("build", gulp.series("assets:cleanup", "cleanup", "nunjucks", "assets:build", "scss", "js", "ts"));
+
+
+// prettier-ignore
+gulp.task("default", (cb) => {
+    console.log("Available tasks:");
+    console.log(plugins.color("gulp scss           ", "CYAN") + "builds css from scss");
+    console.log(plugins.color("gulp scss:watch     ", "CYAN") + "");
+    console.log(plugins.color("gulp ts             ", "CYAN") + "bundles and uglifies typescript");
+    console.log(plugins.color("gulp ts:watch       ", "CYAN") + "");
+    console.log(plugins.color("gulp js             ", "CYAN") + "uglifies js");
+    console.log(plugins.color("gulp js:watch       ", "CYAN") + "");
+    console.log(plugins.color("gulp cleanup        ", "CYAN") + "removes some build folders/files");
+    console.log(plugins.color("gulp assets:cleanup ", "CYAN") + "removes some folders/files in assets folder");
+    console.log(plugins.color("gulp assets:build   ", "CYAN") + "copies some folders/files to assets folder");
+    console.log(plugins.color("gulp assets         ", "CYAN") + "Does assets:cleanup and the assets:build");
+    console.log(plugins.color("gulp build          ", "CYAN") + "to do the stuff above: cleanup, assets, scss, js, js_merge");
+    console.log("");
+    console.log("... call them either with:");
+    console.log(plugins.color("--production", "CYAN"));
+    console.log(plugins.color("--staging", "CYAN"));
+    console.log(plugins.color("--development", "CYAN") + " (default)");
+    console.log("");
+
+    return cb();
+});

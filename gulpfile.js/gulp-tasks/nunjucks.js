@@ -17,6 +17,15 @@ module.exports = (gulp, plugins, ENV, config) => {
                     })
                 )
 
+                // add timestamp
+                .pipe(
+                    plugins.data(function () {
+                        return {
+                            timestamp: Date.now()
+                        };
+                    })
+                )
+
                 // Render template with nunjucks
                 .pipe(
                     plugins.nunjucksRender({

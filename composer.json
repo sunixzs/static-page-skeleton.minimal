@@ -1,0 +1,14 @@
+{
+    "name": "sunixzs/static-page-skeleton.minimal",
+    "type": "project",
+    "require": {
+        "twbs/bootstrap": "<5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcel",
+            "email": "mb@lbrmedia.de"
+        }
+    ]
+}

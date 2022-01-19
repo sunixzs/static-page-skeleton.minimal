@@ -9,6 +9,8 @@
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
+    "@types/bootstrap": "^5.1.8",
+    "@types/jquery": "^3.5.13",
     "autoprefixer": "^9.5.1",
     "browserify": "^17.0.0",
     "del": "^5.0.0",
@@ -39,7 +41,9 @@
     "last 4 version",
     "> 5%",
     "> 1% in DE",
-    "ie 10",
-    "ie 9"
-  ]
+    "ie 10"
+  ],
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }

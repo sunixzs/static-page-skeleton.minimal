@@ -3,6 +3,7 @@
 
 # packages
 node_modules
+vendor
 yarn.lock
 package-lock.json
 *.log
@@ -11,3 +12,4 @@ package-lock.json
 development
 staging
 production
+

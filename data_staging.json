@@ -10,5 +10,10 @@
         "javascript": "assets/javascript/",
         "typescript": "assets/typescript/",
         "style": "assets/style/"
+    },
+    "footer": {
+        "content": {
+            "bar": "baz"
+        }
     }
 }

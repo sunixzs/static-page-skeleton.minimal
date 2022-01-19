@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes" />
     {% block robots %}
     <meta name="robots" content="index, follow" />{% endblock %}
-    <meta name="author" content="{{ data.meta.author }}" />
-    <meta name="copyright" content="{{ data.meta.copyright }}" />
+    <meta name="author" content="{{ meta.author }}" />
+    <meta name="copyright" content="{{ meta.copyright }}" />
     <meta name="distribution" content="global" />
     <meta name="audience" content="all" />
     <meta name="rating" content="general" />
-    <meta name="creator" content="{{ data.meta.creator }}" />
+    <meta name="creator" content="{{ meta.creator }}" />
     <meta name="identifier" content="/" />
 
     <title>{% block pageTitle %}standard page title{% endblock %}</title>
 
-    <base href="{{ baseUrl }}" />
+    {% if baseUrl %}<base href="{{ baseUrl }}" />{% endif %}
 
-    <link rel="stylesheet" type="text/css" href="{{ baseUrl }}{{ path.style }}App.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ baseUrl }}{{ path.style }}App.css?{{ timestamp }}" media="all">
 
     <script>document.documentElement.classList.remove("no-js"); document.documentElement.classList.add("js");</script>
 
@@ -32,23 +32,16 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-config" content="{{ baseUrl }}{{ path.images }}app/browserconfig.xml">
     <meta name="theme-color" content="#5c9eac">
-
 </head>
 
 <body lang="de">
     <header id="header">
-        <div class="content-centered">
-            <div class="content-space--left-right">
-                <div class="position-relative">
-                    <a href="{{ baseUrl }}" id="header__logo"><img src="{{ baseUrl }}{{ path.images }}logos/logo.svg"
-                            alt="" /></a>
-                    {% include "partials/navigation.main.nunjucks" %}
-                    {# {% include "partials/navigation.meta.nunjucks" %} #}
-                </div>
-            </div>
+        <div class="container-xl">
+            <a href="{{ baseUrl }}" id="header__logo"><img src="{{ baseUrl }}{{ path.images }}logos/logo.svg" alt="" /></a>
+            {% include "partials/navigation.main.nunjucks" %}
+            {# {% include "partials/navigation.meta.nunjucks" %} #}
         </div>
     </header>
-    <div id="header__spacer"></div>
 
     <main id="body">
         {% block content %}{% endblock %}
@@ -62,8 +55,10 @@
         </div>
     </footer>
 
-    <script src="{{ baseUrl }}{{ path.javascript }}App.js"></script>
-    <script src="{{ baseUrl }}{{ path.typescript }}App.js"></script>
+    <script src="{{ baseUrl }}{{ path.javascript }}jquery.min.js"></script>
+    <script src="{{ baseUrl }}{{ path.javascript }}bootstrap.bundle.js"></script>
+    <script src="{{ baseUrl }}{{ path.javascript }}App.js?{{ timestamp }}"></script>
+    <script src="{{ baseUrl }}{{ path.typescript }}App.js?{{ timestamp }}"></script>
 </body>
 
 </html>

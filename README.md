@@ -5,9 +5,9 @@ A skeleton for building a static page. In this case a onepager using [nunjucks][
 ## Getting started
 
 1. Download/checkout the main package and extract  
-`git clone https://github.com/sunixzs/static-page-skeleton.git`
+`git clone https://github.com/sunixzs/static-page-skeleton.minimal.git`
 1. Go into the newly created directory  
-`cd static-page-skeleton`
+`cd static-page-skeleton.minimal`
 1. Get the composer packages with  
 `composer update`
 1. Get the npm packages with  

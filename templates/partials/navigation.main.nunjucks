@@ -3,7 +3,7 @@
     <ul>
         <li><a href="{{ baseUrl }}#home">Home</a></li>
         <li><a href="{{ baseUrl }}#about">About</a></li>
-        <li><a href="{{ baseUrl }}#service">Services</a></li>
+        <li><a href="{{ baseUrl }}#services">Services</a></li>
         <li><a href="{{ baseUrl }}#contact">Contact</a></li>
     </ul>
 </nav>

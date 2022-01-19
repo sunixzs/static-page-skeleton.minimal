@@ -60,8 +60,9 @@ module.exports = (gulp, plugins, ENV, config) => {
                     .pipe(source(targetFilename))
                     .pipe(buffer())
                     .pipe(babel(config.babel))
-                    .pipe(ENV.mode.production(plugins.uglify()))
-                    .pipe(ENV.mode.staging(plugins.uglify()))
+                    .pipe(plugins.uglify())
+                    // .pipe(ENV.mode.production(plugins.uglify()))
+                    // .pipe(ENV.mode.staging(plugins.uglify()))
                     .pipe(gulp.dest(config.ts.files[key]));
             }
 
